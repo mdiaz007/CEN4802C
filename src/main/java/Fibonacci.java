@@ -58,11 +58,9 @@ public class Fibonacci {
     /**
     * This method finds the desired term of the fibonacci sequence.
     * The method takes three 3 parameters n, nums, and x.
-    * n is the requested term by the user of the fibonacci sequence.
-    * nums is an ArrayList that stores fibonacci number on each method call.
-    * x is a counter for calculating the fibonacci numbers on each method call.
-    *
-    * @param fibonacciRecursive Method for finding requested term of fibonacci sequence.
+    * @param n is the requested term by the user of the fibonacci sequence.
+    * @param nums is an ArrayList that stores fibonacci number on each method call.
+    * @param x is a counter for calculating the fibonacci numbers on each method call.
     *
     * */
     public static void fibonacciRecursive(int n, ArrayList<Integer> nums, int x){
