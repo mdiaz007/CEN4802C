@@ -1,6 +1,6 @@
 /*
-* August 27, 2024
-* Module 1
+* August 27, 2024.
+* Module 1 - Assignment 1
 * Instructions:
 *
 * Implement a Java class that contains two methods:
@@ -24,37 +24,55 @@ public class Fibonacci {
 
     public static void main(String[] args){
 
+        // A scanner object for scanning user input.
         Scanner scan = new Scanner(System.in);
 
         System.out.print("\nLook for term in Fibonacci sequence: ");
         int n = scan.nextInt();
+
+        // Closing scanner, will not be used anymore during the program.
         scan.close();
 
+        // ArrayList for holding numbers of the fibonacci sequence.
         ArrayList<Integer> nums = new ArrayList<>();
 
+        // Sets the first two numbers of the fibonacci sequence.
         nums.add(0);
         if (n != 0){
             nums.add(1);
         }
 
-
+        // Counter for the recursive method.
         int x = 0;
 
-        fib(n, nums, x);
+        // Calls the method for finding a specified term of the fibonacci sequence.
+        fibonacciRecursive(n, nums, x);
 
         System.out.println("\nFibonacci sequence up until desired term:");
+
+        // Prints the ArrayList of the fibonacci sequence up until desired term.
         System.out.println(nums);
 
     }
 
-    public static void fib(int n, ArrayList nums, int x){
+    /**
+    * This method finds the desired term of the fibonacci sequence.
+    * The method takes three 3 parameters n, nums, and x.
+    * n is the requested term by the user of the fibonacci sequence.
+    * nums is an ArrayList that stores fibonacci number on each method call.
+    * x is a counter for calculating the fibonacci numbers on each method call.
+    *
+    * @param fibonacciRecursive Method for finding requested term of fibonacci sequence.
+    *
+    * */
+    public static void fibonacciRecursive(int n, ArrayList<Integer> nums, int x){
 
         if (n <= 1){
 
             if (n == 0){
-                System.out.println("The " + n + " term of the Fibonacci sequence is " + nums.get(n) + ".");
+                System.out.println("Term " + n +  " of the Fibonacci sequence is " + nums.get(n) + ".");
             }else if (n == 1){
-                System.out.println("The " + n + " term of the Fibonacci sequence is " + nums.get(n) + ".");
+                System.out.println("Term " + n +  " of the Fibonacci sequence is " + nums.get(n) + ".");
             }else{
                 System.out.println("Please enter a valid number!");
             }
@@ -62,12 +80,12 @@ public class Fibonacci {
         }else{
 
             if (nums.size()-1 != n){
-                int iteration = ((int) nums.get(x) + (int) nums.get(x+1));
+                int iteration = (nums.get(x) + nums.get(x+1));
                 x++;
                 nums.add(iteration);
-                fib(n, nums, x);
+                fibonacciRecursive(n, nums, x);
             }else{
-                System.out.println("The " + n + " term of the Fibonacci sequence is " + nums.get(n) + ".");
+                System.out.println("Term " + n +  " of the Fibonacci sequence is " + nums.get(n) + ".");
             }
 
         }
